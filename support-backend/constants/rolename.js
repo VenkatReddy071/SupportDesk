@@ -1,0 +1,1 @@
+export const roleNames=['SUPERADMIN','ORGADMIN','MANAGER','AGENT','AIAGENT','VIEWER','API CLIENT']
