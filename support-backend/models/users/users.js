@@ -55,6 +55,18 @@ const userScheme=new mongoose.Schema({
 userScheme.path('userRoles').validate((value)=>{
     return value?.length>0;
 },"Atleast one role is required ")
+
+
+userScheme.index({userName:1});
+userScheme.index({email:1});
+userScheme.index({company:1});
+userScheme.index({
+
+    userName:1,
+    email:1,
+    company:1,
+    userRoles:1,
+})
 const userModal=mongoose.model('users',userScheme);
 
 export default userModal;
