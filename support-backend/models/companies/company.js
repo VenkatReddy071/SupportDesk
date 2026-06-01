@@ -6,6 +6,11 @@ const CompanySchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    email:{
+        type: String,
+        required: true,
+        unique: true,
+    },
     subDomain: {
         type: String,
         required: true,
@@ -14,17 +19,21 @@ const CompanySchema = new mongoose.Schema({
     address: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Address"
+    },
+    isActive:{
+        type:Boolean,
+        default:false
     }
 }, { timestamps: true })
 
 
 CompanySchema.index({ companyName: 1 });
-
+CompanySchema.index({ email: 1 });
 CompanySchema.index({ subDomain: 1 });
 
 CompanySchema.index({
     companyName: 1,
-
+    email:1,
     subDomain: 1
 })
 

@@ -14,5 +14,6 @@ const Roles=new mongoose.Schema({
     }
 },{timestamps:true})
 
-const Role=mongoose.model('Roles',Roles);
-export default Role;
+Roles.index({roleName:1});
+const RoleSchema=mongoose.model('Roles',Roles);
+export default RoleSchema;

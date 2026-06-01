@@ -20,12 +20,7 @@ export const Address = Joi.object({
             'string.base': 'landMark must be string',
             'string.required': 'landMark is required'
         }),
-      location:Joi.string()
-    .required()
-    .messages({
-        'string.base':'location must be string',
-        'string.required':'location is required'
-    }),
+     
     pincode:Joi.string()
     .min(6)
     .max(6)

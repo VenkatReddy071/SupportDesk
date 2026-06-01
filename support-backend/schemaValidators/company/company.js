@@ -1,7 +1,7 @@
 import Joi from "joi";
-import { Address } from "./address";
+import { Address } from "./address.js";
 
-export const createCompany = Joi.object({
+export const createCompanySchema     = Joi.object({
     companyName: Joi.string()
         .min(3)
         .max(100)
@@ -17,6 +17,12 @@ export const createCompany = Joi.object({
         .messages({
             'string.base': 'Subdomain must be string',
             'string.empty': 'Subdomain is required'
+        }),
+     email: Joi.string()
+        .required()
+        .messages({
+            'string.base': 'Email must be string',
+            'string.empty': 'Email is required'
         }),
     address: Address.required()
 
